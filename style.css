@@ -698,15 +698,113 @@ button{font-family:inherit}
 }
 
 
-/* === FINAL MOBILE CATEGORY GRID 3x3 === */
-@media(max-width:650px){
-  .category-home .category-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
-    gap:4px !important;
-    padding:4px !important;
+/* =========================================================
+   FINAL RESPONSIVE HOME LAYOUT
+   Hero + 3-column category grid + bottom image share ONE width.
+   No image zoom/crop on the wide top/bottom campaign images.
+   ========================================================= */
+html,body{
+  background:#050505;
+}
+
+.category-home{
+  width:min(100%,1180px) !important;
+  max-width:1180px !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  background:#050505 !important;
+}
+
+.category-home .category-hero,
+.category-home .category-section,
+.category-home .home-contact-button,
+.category-home .campaign-bottom{
+  width:100% !important;
+  max-width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box !important;
+}
+
+.category-home .category-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:4px !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  padding:4px !important;
+  box-sizing:border-box !important;
+  background:#050505 !important;
+}
+
+.category-home .category-hero,
+.category-home .campaign-bottom{
+  display:block !important;
+  position:relative !important;
+  height:auto !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  background:#050505 !important;
+}
+
+.category-home .category-hero>img,
+.category-home .campaign-bottom>img{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  transform:none !important;
+  scale:1 !important;
+  margin:0 !important;
+}
+
+.category-home .category-hero:hover>img,
+.category-home .campaign-bottom:hover>img{
+  transform:none !important;
+  scale:1 !important;
+}
+
+.mobile-cover-v6{
+  width:100% !important;
+  min-width:0 !important;
+}
+
+.mobile-cover-v6-img{
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:2/3 !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+}
+
+/* Desktop: centered catalog, never blown up across a huge monitor. */
+@media (min-width:651px){
+  .category-home{
+    width:min(92vw,1180px) !important;
   }
   .mobile-cover-v6-label{
-    font-size:9px !important;
-    letter-spacing:.035em !important;
+    font-size:clamp(9px,.85vw,12px) !important;
+    letter-spacing:.05em !important;
+  }
+}
+
+/* Phone/tablet: same composition simply shrinks to the screen width. */
+@media (max-width:650px){
+  .category-home{
+    width:100% !important;
+    max-width:100% !important;
+  }
+  .category-home .category-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:3px !important;
+    padding:3px !important;
+  }
+  .mobile-cover-v6-label{
+    font-size:8px !important;
+    letter-spacing:.025em !important;
   }
 }
