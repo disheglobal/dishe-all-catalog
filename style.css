@@ -607,30 +607,76 @@ button{font-family:inherit}
 /* Ten cards form complete rows on small screens too. */
 @media(max-width:650px){.category-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* === iPHONE CATEGORY GRID FIX === */
+/* === D.SHE MOBILE FAST CATEGORY GRID / DARK THEME === */
+.category-home,
+.category-home .category-section,
+.category-home .category-grid,
+.category-home .campaign-bottom{
+  background:#050505 !important;
+}
+
+.category-home .category-grid{
+  gap:4px !important;
+  padding:4px !important;
+}
+
+.category-home .category-tile{
+  background:#050505 !important;
+}
+
+.category-home .category-visual{
+  background:#050505 !important;
+}
+
+.category-home .category-cover-image{
+  background:#050505 !important;
+}
+
+.category-home .category-copy{
+  background:linear-gradient(transparent,rgba(5,5,5,.82)) !important;
+}
+
+.category-home .category-name{
+  color:#f2e1bf !important;
+  text-shadow:0 1px 2px rgba(0,0,0,.85);
+}
+
+.category-home .catalog-search-button,
+.category-home .home-contact-button{
+  background:#17130f !important;
+  color:#e7c88e !important;
+  border-top:1px solid rgba(216,174,102,.55) !important;
+  border-bottom:1px solid rgba(216,174,102,.55) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035) !important;
+}
+
+.category-home .catalog-search-button svg{
+  stroke:#e7c88e !important;
+}
+
 @media (max-width:650px){
   .category-home .category-grid{
     display:grid !important;
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    gap:6px !important;
-    padding:6px !important;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    gap:2px !important;
+    padding:2px !important;
     width:100% !important;
+    background:#050505 !important;
   }
 
   .category-home .category-tile{
-    display:block !important;
-    width:100% !important;
     min-width:0 !important;
-    height:auto !important;
-    background:#efefed !important;
+    width:100% !important;
+    background:#050505 !important;
   }
 
   .category-home .category-visual{
     position:relative !important;
     display:block !important;
     width:100% !important;
-    height:calc(100vw - 18px) !important;
-    aspect-ratio:auto !important;
+    height:auto !important;
+    aspect-ratio:2/3 !important;
+    background:#050505 !important;
     overflow:hidden !important;
   }
 
@@ -642,6 +688,36 @@ button{font-family:inherit}
     height:100% !important;
     object-fit:cover !important;
     object-position:center !important;
+    background:#050505 !important;
+  }
+
+  .category-home .category-copy{
+    min-height:0 !important;
+    padding:12px 1px 5px !important;
+    background:linear-gradient(transparent,rgba(5,5,5,.90)) !important;
+  }
+
+  .category-home .category-name{
+    font-size:clamp(6px,1.75vw,8px) !important;
+    line-height:1.05 !important;
+    letter-spacing:.035em !important;
+    color:#f2e1bf !important;
+    white-space:nowrap !important;
+  }
+
+  .category-home .catalog-search-button,
+  .category-home .home-contact-button{
+    height:38px !important;
+    min-height:38px !important;
+    background:#17130f !important;
+    color:#e7c88e !important;
+    border-color:rgba(216,174,102,.55) !important;
+    font-size:10px !important;
+    letter-spacing:.14em !important;
+  }
+
+  .category-home .campaign-bottom{
+    background:#050505 !important;
   }
 }
 
