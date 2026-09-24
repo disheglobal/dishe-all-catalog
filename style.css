@@ -808,3 +808,55 @@ html,body{
     letter-spacing:.025em !important;
   }
 }
+
+
+/* =========================================================
+   FINAL HOME SPACING FIX
+   - no CONTACT US block
+   - bottom campaign image immediately under category grid
+   - whole home starts slightly lower so menu.jpg is fully visible
+   ========================================================= */
+
+.category-home{
+  padding-top:18px !important;
+}
+
+.category-home .category-section{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.category-home .category-grid{
+  margin:0 !important;
+  padding:4px !important;
+}
+
+.category-home .campaign-bottom{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+.category-home .category-section + .campaign-bottom{
+  margin-top:0 !important;
+}
+
+.category-home .category-hero{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+.category-home .category-hero>img,
+.category-home .campaign-bottom>img{
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  object-fit:contain !important;
+  transform:none !important;
+}
+
+/* Slightly less top offset on small phones */
+@media (max-width:650px){
+  .category-home{
+    padding-top:12px !important;
+  }
+}

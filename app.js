@@ -4,7 +4,7 @@ const app=document.getElementById('app');
 let db={products:[]};
 // Stable release key lets phones cache category covers between visits.
 // Change it only when catalog assets are deliberately replaced.
-const ASSET_VERSION='20260924140458930140';
+const ASSET_VERSION='20260924140923863000';
 
 const MENU_ITEMS=[
   ['SUIT','Suits'],['SHIRT','Shirts'],['PANTS','Jeans'],
@@ -23,7 +23,6 @@ const searchButton=()=>`<button class="catalog-search-button" type="button" aria
 const categoryMenuMarkup=(extraClass='')=>`<div class="category-home ${extraClass}">
 <section class="category-hero"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="D.SHE Fall Winter 2026"></section>
 <section class="category-section">${searchButton()}<div class="category-grid">${MENU_ITEMS.map(categoryTile).join('')}</div></section>
-<a class="home-contact-button" href="https://dishesocial.carrd.co/" target="_blank" rel="noopener">CONTACT US</a>
 <section class="campaign-bottom" aria-label="D.SHE campaign"><img src="assets/bottom.jpg?v=${ASSET_VERSION}" alt="D.SHE campaign" loading="lazy" decoding="async"></section>
 </div>`;
 const openCategoryLink=cat=>{if(cat==='BAG'){window.location.href='https://t.me/DisheBag';return;}openCategory(cat)};
