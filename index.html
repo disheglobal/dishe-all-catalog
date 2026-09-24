@@ -6,7 +6,6 @@
 <meta name="theme-color" content="#050505">
 <title>D.SHE FALL–WINTER 2026</title>
 <style>
-
 *{box-sizing:border-box}
 html,body,#app{margin:0;width:100%;height:100%;background:#050505;color:#fff;font-family:'Times New Roman',serif;overflow:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 button{font-family:inherit}
@@ -981,7 +980,18 @@ button{font-family:inherit}
 
 
 
-/* === ABSOLUTE COVER URL MOBILE FIX === */
+/* === BACKGROUND IMAGE CATEGORY COVER FIX === */
+.category-home .category-visual{
+  background-color:#050505 !important;
+  background-repeat:no-repeat !important;
+  background-position:center top !important;
+  background-size:cover !important;
+}
+.category-home .category-visual::before,
+.category-home .category-visual::after{
+  display:none !important;
+  content:none !important;
+}
 @media (max-width:650px){
   .category-home .category-grid{
     display:grid !important;
@@ -999,77 +1009,23 @@ button{font-family:inherit}
     background:#050505 !important;
   }
   .category-home .category-visual{
-    position:relative !important;
     display:block !important;
     width:100% !important;
     height:138px !important;
     min-height:138px !important;
-    overflow:hidden !important;
-    background:#050505 !important;
-  }
-  .category-home .category-cover-image{
-    position:absolute !important;
-    inset:0 !important;
-    display:block !important;
-    width:100% !important;
-    height:100% !important;
-    object-fit:cover !important;
-    object-position:center top !important;
-    opacity:1 !important;
-    visibility:visible !important;
-    filter:none !important;
-    z-index:1 !important;
+    background-color:#050505 !important;
+    background-repeat:no-repeat !important;
+    background-position:center top !important;
+    background-size:cover !important;
   }
   .category-home .category-copy{
-    z-index:5 !important;
+    z-index:10 !important;
   }
 }
-
 </style>
-
-<style>
-/* === COVER IMAGE FORCE-TOP DIAGNOSTIC/FIX === */
-.category-home .category-visual::before,
-.category-home .category-visual::after{
-  display:none !important;
-  content:none !important;
-}
-
-.category-home .category-tile::before,
-.category-home .category-tile::after{
-  display:none !important;
-  content:none !important;
-}
-
-.category-home .category-visual{
-  position:relative !important;
-  background:#050505 !important;
-  isolation:auto !important;
-}
-
-.category-home .category-cover-image{
-  position:absolute !important;
-  inset:0 !important;
-  z-index:9999 !important;
-  display:block !important;
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover !important;
-  object-position:center top !important;
-  opacity:1 !important;
-  visibility:visible !important;
-  filter:none !important;
-  mix-blend-mode:normal !important;
-}
-
-.category-home .category-copy{
-  z-index:10000 !important;
-}
-</style>
-
 </head>
 <body>
 <main id="app"><div class="loading">D.SHE</div></main>
-<script src="app.js?v=20260924-absolute-covers-v1"></script>
+<script src="app.js?v=20260924-bg-covers-v1"></script>
 </body>
 </html>
