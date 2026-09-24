@@ -860,3 +860,78 @@ html,body{
     padding-top:12px !important;
   }
 }
+
+
+/* =========================================================
+   FINAL SPACING — HERO STAYS, CONTENT BELOW MOVES DOWN
+   ========================================================= */
+
+/* Keep the top hero itself unchanged. */
+.category-home{
+  padding-top:0 !important;
+}
+
+/* Preserve the hero image size/position; add space only AFTER it. */
+.category-home .category-hero{
+  margin-top:0 !important;
+  margin-bottom:24px !important;
+  padding:0 !important;
+}
+
+/* Search/category section starts lower because of hero margin above. */
+.category-home .category-section{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* Three category columns; 4px gaps everywhere. */
+.category-home .category-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:4px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:4px !important;
+  box-sizing:border-box !important;
+}
+
+/* Bottom campaign image: exactly one category-gap below the grid. */
+.category-home .campaign-bottom{
+  margin-top:4px !important;
+  margin-bottom:0 !important;
+  padding:0 !important;
+}
+
+/* Do not zoom or crop either wide image. */
+.category-home .category-hero>img,
+.category-home .campaign-bottom>img{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  transform:none !important;
+  scale:1 !important;
+}
+
+/* Phone keeps the exact same logic, just smaller spacing after hero. */
+@media (max-width:650px){
+  .category-home{
+    padding-top:0 !important;
+  }
+
+  .category-home .category-hero{
+    margin-bottom:18px !important;
+  }
+
+  .category-home .category-grid{
+    gap:3px !important;
+    padding:3px !important;
+  }
+
+  .category-home .campaign-bottom{
+    margin-top:3px !important;
+  }
+}
