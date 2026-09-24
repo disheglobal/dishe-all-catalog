@@ -696,3 +696,17 @@ button{font-family:inherit}
     letter-spacing:.025em !important;
   }
 }
+
+
+/* === FINAL MOBILE CATEGORY GRID 3x3 === */
+@media(max-width:650px){
+  .category-home .category-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:4px !important;
+    padding:4px !important;
+  }
+  .mobile-cover-v6-label{
+    font-size:9px !important;
+    letter-spacing:.035em !important;
+  }
+}

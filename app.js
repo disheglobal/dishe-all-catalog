@@ -1,15 +1,16 @@
+// 20260924-mobile-3col-no-bag
 // 20260924-v6-clean-mobile-covers
 const app=document.getElementById('app');
 let db={products:[]};
 // Stable release key lets phones cache category covers between visits.
 // Change it only when catalog assets are deliberately replaced.
-const ASSET_VERSION='20260924-v6-clean-mobile-covers';
+const ASSET_VERSION='20260924-mobile-3col-no-bag';
 
 const MENU_ITEMS=[
   ['SUIT','Suits'],['SHIRT','Shirts'],
   ['PANTS','Jeans'],['JACKET','Jackets'],['SKIRT','Skirts'],
   ['OUTFIT','Outerwear'],['KNITWEAR','Knitwear'],
-  ['BIG_SIZE','Plus Size'],['DRESS','Dresses'],['BAG','Bags']
+  ['BIG_SIZE','Plus Size'],['DRESS','Dresses']
 ];
 
 const clickIcon=()=>`<span class="click-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M13.2 15.4V6.9a2.2 2.2 0 0 1 4.4 0v7.2-2.1a2.1 2.1 0 0 1 4.2 0v1.1a2.1 2.1 0 0 1 4.2 0v1.4a2.1 2.1 0 0 1 4.2 0v5.4c0 5.4-3.2 8.4-8.1 8.4h-2.4c-3.1 0-5.4-1.4-7-3.9l-4.1-6.5a2.3 2.3 0 0 1 3.6-2.8l1 1.3Z"/><path d="M7 5.8 4.8 3.6M11.3 3.9V1M6 10H2.8"/></svg></span>`;
