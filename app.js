@@ -5,19 +5,19 @@ let db={products:[]};
 const ASSET_VERSION='20260923-all-covers';
 
 const MENU_ITEMS=[
-  ['SUIT','Suits','Костюмы'],['SHIRT','Shirts','Рубашки'],
-  ['PANTS','Jeans','Джинсы'],['JACKET','Jackets','Жакеты'],['SKIRT','Skirts','Юбки'],
-  ['OUTFIT','Outerwear','Верхняя одежда'],['KNITWEAR','Knitwear','Трикотаж'],
-  ['BIG_SIZE','Plus Size','Большие размеры'],['DRESS','Dresses','Платья']
+  ['SUIT','Suits'],['SHIRT','Shirts'],
+  ['PANTS','Jeans'],['JACKET','Jackets'],['SKIRT','Skirts'],
+  ['OUTFIT','Outerwear'],['KNITWEAR','Knitwear'],
+  ['BIG_SIZE','Plus Size'],['DRESS','Dresses']
 ];
 
 const clickIcon=()=>`<span class="click-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M13.2 15.4V6.9a2.2 2.2 0 0 1 4.4 0v7.2-2.1a2.1 2.1 0 0 1 4.2 0v1.1a2.1 2.1 0 0 1 4.2 0v1.4a2.1 2.1 0 0 1 4.2 0v5.4c0 5.4-3.2 8.4-8.1 8.4h-2.4c-3.1 0-5.4-1.4-7-3.9l-4.1-6.5a2.3 2.3 0 0 1 3.6-2.8l1 1.3Z"/><path d="M7 5.8 4.8 3.6M11.3 3.9V1M6 10H2.8"/></svg></span>`;
 const telegramIcon=()=>`<span class="telegram-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="15"/><path d="m7.2 15.4 16.9-6.5c.8-.3 1.5.2 1.2 1.5l-2.9 13.5c-.2 1-1 1.3-1.8.8l-4.4-3.3-2.1 2.1c-.2.2-.4.4-.8.4l.3-4.5 8.2-7.4c.4-.3-.1-.5-.5-.2l-10.1 6.4-4.4-1.4c-1-.3-1-1 .4-1.4Z"/></svg></span>`;
 
-const menuButton=(key,en,ru)=>`<button class="lux-button menu-category" data-c="${key}" aria-label="${en}"><span class="lux-copy"><span class="lux-en">${en}</span><span class="lux-ru">${ru}</span></span>${clickIcon()}</button>`;
+const menuButton=(key,en)=>`<button class="lux-button menu-category" data-c="${key}" aria-label="${en}"><span class="lux-copy"><span class="lux-en">${en}</span></span>${clickIcon()}</button>`;
 const categoriesButton=()=>`<button class="lux-button categories-button" aria-label="Categories"><span class="lux-copy"><span class="lux-en">Categories</span></span>${clickIcon()}</button>`;
 
-const categoryTile=([key,en,ru])=>`<button class="category-tile" data-c="${key}" aria-label="${en}"><span class="category-visual"><img class="category-cover-image" src="assets/covers/${key}.png?v=${ASSET_VERSION}" alt=""></span><span class="category-copy"><span class="category-name">${en}</span><span class="category-name-ru">${ru}</span></span></button>`;
+const categoryTile=([key,en])=>`<button class="category-tile" data-c="${key}" aria-label="${en}"><span class="category-visual"><img class="category-cover-image" src="assets/covers/${key}.png?v=${ASSET_VERSION}" alt=""></span><span class="category-copy"><span class="category-name">${en}</span></span></button>`;
 const searchButton=()=>`<button class="catalog-search-button" type="button" aria-label="Search by product code"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 5 5"></path></svg><span>Search by code</span></button>`;
 const categoryMenuMarkup=(extraClass='')=>`<div class="category-home ${extraClass}"><section class="category-hero"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="D.SHE Fall Winter 2026"></section><section class="category-section"><header class="section-heading"><h2>Categories</h2><p>SHOP BY CATEGORY</p>${searchButton()}</header><div class="category-grid">${MENU_ITEMS.map(categoryTile).join('')}</div></section></div>`;
 const openCategoryLink=cat=>openCategory(cat);
@@ -87,7 +87,7 @@ async function openCategory(cat){
   if(!selectedItem){home();return;}
   const categorySequence=MENU_ITEMS;
   const loaderSlide=(key,comingSoon=false)=>{
-    const [,en,ru]=MENU_ITEMS.find(([itemKey])=>itemKey===key);
+    const [,en]=MENU_ITEMS.find(([itemKey])=>itemKey===key);
     return `<article class="slide category-loader-slide"><div class="category-loader"><img src="assets/category-loader.webp?v=${ASSET_VERSION}" alt="D.SHE ${en}"><span class="loader-diamond" aria-label="Loading"><svg viewBox="0 0 90 66" aria-hidden="true"><defs><linearGradient id="redGem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff8084"/><stop offset=".42" stop-color="#e20d1c"/><stop offset="1" stop-color="#690008"/></linearGradient></defs><path class="gem-shadow" d="M19 17h52l13 17-39 29L6 34l13-17Z"/><path class="gem-crown" d="M19 17h52l13 17H6l13-17Z"/><path class="gem-left" d="M6 34h25l14 29L6 34Z"/><path class="gem-center" d="M31 34h28L45 63 31 34Z"/><path class="gem-right" d="M59 34h25L45 63l14-29Z"/><path class="gem-top-left" d="m19 17 12 17 14-17-26 0Z"/><path class="gem-top-center" d="m45 17 14 17 12-17H45Z"/><path class="gem-glint" d="m25 19 7 11 8-11H25Z"/><path class="gem-rim" d="M19 17h52l13 17-39 29L6 34l13-17ZM6 34h78M31 34l14 29 14-29M19 17l12 17 14-17 14 17 12-17"/></svg></span>${comingSoon?'<span class="loader-coming-soon">COMING SOON</span>':''}</div></article>`;
   };
   app.innerHTML=`<section class="screen viewer"><div class="slides">${loaderSlide(cat)}</div></section>`;
@@ -137,9 +137,9 @@ async function openCategory(cat){
 
   slides.push(`<article class="slide menu-return-slide">${categoryMenuMarkup('category-return-stage')}</article>`);
 
-  MENU_ITEMS.forEach(([key,en,ru])=>{
+  MENU_ITEMS.forEach(([key,en])=>{
     if(key===cat)startIndex=slides.length;
-    slides.push(`<article class="slide cover" data-category="${key}"><div class="cover-stage"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="${en}"><div class="cover-copy"><img class="cover-logo" src="assets/dishe-logo.png?v=${ASSET_VERSION}" alt="D.SHE"><div class="cover-new-season">NEW SEASON</div><div class="cover-season">FALL / WINTER 2026</div><div class="cover-title">${en}</div>${ru?`<div class="cover-subtitle">${ru}</div>`:''}<div class="cover-divider"><span></span><svg class="cover-diamond" viewBox="0 0 64 48" aria-hidden="true"><path d="M12 5h40l9 13-29 27L3 18 12 5Z"/><path d="m12 5 8 13 12-13 12 13 8-13M3 18h58M20 18l12 27 12-27"/></svg><span></span></div><button class="cover-swipe" type="button" aria-label="Categories">${clickIcon()}</button></div></div></article>`);
+    slides.push(`<article class="slide cover" data-category="${key}"><div class="cover-stage"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="${en}"><div class="cover-copy"><img class="cover-logo" src="assets/dishe-logo.png?v=${ASSET_VERSION}" alt="D.SHE"><div class="cover-new-season">NEW SEASON</div><div class="cover-season">FALL / WINTER 2026</div><div class="cover-title">${en}</div><div class="cover-divider"><span></span><svg class="cover-diamond" viewBox="0 0 64 48" aria-hidden="true"><path d="M12 5h40l9 13-29 27L3 18 12 5Z"/><path d="m12 5 8 13 12-13 12 13 8-13M3 18h58M20 18l12 27 12-27"/></svg><span></span></div><button class="cover-swipe" type="button" aria-label="Categories">${clickIcon()}</button></div></div></article>`);
 
     db.products
       .filter(p=>(p.categories||[p.category]).includes(key))
