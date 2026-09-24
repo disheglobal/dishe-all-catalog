@@ -4,7 +4,7 @@ const app=document.getElementById('app');
 let db={products:[]};
 // Stable release key lets phones cache category covers between visits.
 // Change it only when catalog assets are deliberately replaced.
-const ASSET_VERSION='20260924133938817245';
+const ASSET_VERSION='20260924134718619447';
 
 const MENU_ITEMS=[
   ['SUIT','Suits'],['SHIRT','Shirts'],
