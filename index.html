@@ -1026,6 +1026,47 @@ button{font-family:inherit}
 }
 
 </style>
+
+<style>
+/* === COVER IMAGE FORCE-TOP DIAGNOSTIC/FIX === */
+.category-home .category-visual::before,
+.category-home .category-visual::after{
+  display:none !important;
+  content:none !important;
+}
+
+.category-home .category-tile::before,
+.category-home .category-tile::after{
+  display:none !important;
+  content:none !important;
+}
+
+.category-home .category-visual{
+  position:relative !important;
+  background:#050505 !important;
+  isolation:auto !important;
+}
+
+.category-home .category-cover-image{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:9999 !important;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:none !important;
+  mix-blend-mode:normal !important;
+}
+
+.category-home .category-copy{
+  z-index:10000 !important;
+}
+</style>
+
 </head>
 <body>
 <main id="app"><div class="loading">D.SHE</div></main>
