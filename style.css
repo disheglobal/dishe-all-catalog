@@ -588,3 +588,21 @@ button{font-family:inherit}
 @media(prefers-reduced-motion:reduce){
  .category-home .category-hero>img,.category-home .category-cover-image,.category-home .campaign-bottom>img{transition:none;transform:none!important}
 }
+
+/* Compact category cards and full-width action strips. */
+.category-home{--catalog-gap:6px;width:100%;max-width:none}
+.category-home .category-section{padding:0;margin:0}
+.category-home .catalog-search-button,.category-home .home-contact-button{display:flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;width:100%;max-width:none;height:40px;min-height:40px;margin:0;padding:0 12px;border:0;border-top:1px solid #c8c8c4;border-bottom:1px solid #c8c8c4;border-radius:0;background:#eeeee9;color:#171717;font:400 11px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.category-home .catalog-search-button{cursor:pointer}
+.category-home .catalog-search-button svg{width:14px;height:14px;flex-shrink:0}
+.category-home .home-contact-button{cursor:default}
+.category-home .category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--catalog-gap);box-sizing:border-box;width:100%;max-width:none;margin:0;padding:var(--catalog-gap)}
+.category-home .category-tile{position:relative;display:block;width:100%;padding:0;margin:0;overflow:hidden;background:#efefed}
+.category-home .category-visual{display:block;width:100%;height:auto;aspect-ratio:1/2;overflow:hidden}
+.category-home .category-cover-image{inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.category-home .category-copy{position:absolute;z-index:5;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;min-height:0;margin:0;padding:24px 3px 10px;pointer-events:none;background:linear-gradient(transparent,rgba(245,245,242,.78))}
+.category-home .category-name{font:400 clamp(9px,.85vw,12px)/1.2 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:#171717}
+@media(max-width:650px){.category-home .category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.category-home .category-copy{padding-bottom:8px}}
+
+/* Ten cards form complete rows on small screens too. */
+@media(max-width:650px){.category-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
