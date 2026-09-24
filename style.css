@@ -607,7 +607,7 @@ button{font-family:inherit}
 /* Ten cards form complete rows on small screens too. */
 @media(max-width:650px){.category-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* === D.SHE MOBILE FAST CATEGORY GRID / DARK THEME === */
+/* === D.SHE COVER GRID V5 — isolated from old category image rules === */
 .category-home,
 .category-home .category-section,
 .category-home .category-grid,
@@ -616,29 +616,64 @@ button{font-family:inherit}
 }
 
 .category-home .category-grid{
-  gap:4px !important;
-  padding:4px !important;
-}
-
-.category-home .category-tile{
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:2px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:2px !important;
   background:#050505 !important;
 }
 
-.category-home .category-visual{
+.dshe-cover-card-v5{
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background:#050505 !important;
+  overflow:hidden !important;
+  cursor:pointer !important;
+}
+
+.dshe-cover-img-v5{
+  position:relative !important;
+  z-index:1 !important;
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:2/3 !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:none !important;
+  mix-blend-mode:normal !important;
+  transform:none !important;
   background:#050505 !important;
 }
 
-.category-home .category-cover-image{
-  background:#050505 !important;
-}
-
-.category-home .category-copy{
-  background:linear-gradient(transparent,rgba(5,5,5,.82)) !important;
-}
-
-.category-home .category-name{
+.dshe-cover-label-v5{
+  position:absolute !important;
+  z-index:2 !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  display:flex !important;
+  align-items:flex-end !important;
+  justify-content:center !important;
+  min-height:28px !important;
+  padding:12px 1px 5px !important;
+  background:linear-gradient(transparent,rgba(5,5,5,.90)) !important;
   color:#f2e1bf !important;
-  text-shadow:0 1px 2px rgba(0,0,0,.85);
+  font:400 10px/1 Arial,sans-serif !important;
+  letter-spacing:.06em !important;
+  text-transform:uppercase !important;
+  white-space:nowrap !important;
+  pointer-events:none !important;
 }
 
 .category-home .catalog-search-button,
@@ -647,181 +682,18 @@ button{font-family:inherit}
   color:#e7c88e !important;
   border-top:1px solid rgba(216,174,102,.55) !important;
   border-bottom:1px solid rgba(216,174,102,.55) !important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.035) !important;
-}
-
-.category-home .catalog-search-button svg{
-  stroke:#e7c88e !important;
+  text-decoration:none !important;
 }
 
 @media (max-width:650px){
   .category-home .category-grid{
-    display:grid !important;
     grid-template-columns:repeat(5,minmax(0,1fr)) !important;
-    gap:2px !important;
-    padding:2px !important;
-    width:100% !important;
-    background:#050505 !important;
   }
-
-  .category-home .category-tile{
-    min-width:0 !important;
-    width:100% !important;
-    background:#050505 !important;
-  }
-
-  .category-home .category-visual{
-    position:relative !important;
-    display:block !important;
-    width:100% !important;
-    height:auto !important;
-    aspect-ratio:2/3 !important;
-    background:#050505 !important;
-    overflow:hidden !important;
-  }
-
-  .category-home .category-cover-image{
-    position:absolute !important;
-    inset:0 !important;
-    display:block !important;
-    width:100% !important;
-    height:100% !important;
-    object-fit:cover !important;
-    object-position:center !important;
-    background:#050505 !important;
-  }
-
-  .category-home .category-copy{
-    min-height:0 !important;
-    padding:12px 1px 5px !important;
-    background:linear-gradient(transparent,rgba(5,5,5,.90)) !important;
-  }
-
-  .category-home .category-name{
-    font-size:clamp(6px,1.75vw,8px) !important;
-    line-height:1.05 !important;
+  .dshe-cover-label-v5{
+    font-size:7px !important;
     letter-spacing:.035em !important;
-    color:#f2e1bf !important;
-    white-space:nowrap !important;
-  }
-
-  .category-home .catalog-search-button,
-  .category-home .home-contact-button{
-    height:38px !important;
-    min-height:38px !important;
-    background:#17130f !important;
-    color:#e7c88e !important;
-    border-color:rgba(216,174,102,.55) !important;
-    font-size:10px !important;
-    letter-spacing:.14em !important;
-  }
-
-  .category-home .campaign-bottom{
-    background:#050505 !important;
-  }
-}
-
-/* === FINAL IPHONE CATEGORY GRID FIX V3 === */
-.category-home,
-.category-home .category-section,
-.category-home .category-grid,
-.category-home .category-tile,
-.category-home .category-visual,
-.category-home .campaign-bottom{
-  background:#050505 !important;
-}
-
-.category-home .catalog-search-button,
-.category-home .home-contact-button{
-  background:#17130f !important;
-  color:#e7c88e !important;
-  border-top:1px solid rgba(216,174,102,.55) !important;
-  border-bottom:1px solid rgba(216,174,102,.55) !important;
-}
-
-.category-home .catalog-search-button svg{
-  stroke:#e7c88e !important;
-}
-
-@media (max-width:650px){
-  .category-home .category-section{
-    display:block !important;
-    background:#050505 !important;
-  }
-
-  .category-home .category-grid{
-    display:grid !important;
-    grid-template-columns:repeat(5, minmax(0,1fr)) !important;
-    gap:2px !important;
-    width:100% !important;
-    min-height:280px !important;
-    margin:0 !important;
-    padding:2px !important;
-    background:#050505 !important;
-    overflow:visible !important;
-  }
-
-  .category-home .category-tile{
-    position:relative !important;
-    display:block !important;
-    width:100% !important;
-    min-width:0 !important;
-    height:auto !important;
-    min-height:138px !important;
-    margin:0 !important;
-    padding:0 !important;
-    overflow:hidden !important;
-    background:#050505 !important;
-  }
-
-  .category-home .category-visual{
-    position:relative !important;
-    display:block !important;
-    width:100% !important;
-    height:136px !important;
-    min-height:136px !important;
-    aspect-ratio:auto !important;
-    overflow:hidden !important;
-    background:#050505 !important;
-  }
-
-  .category-home .category-cover-image{
-    position:absolute !important;
-    inset:0 !important;
-    display:block !important;
-    width:100% !important;
-    height:100% !important;
-    object-fit:cover !important;
-    object-position:center top !important;
-    background:#050505 !important;
-  }
-
-  .category-home .category-copy{
-    position:absolute !important;
-    z-index:5 !important;
-    left:0 !important;
-    right:0 !important;
-    bottom:0 !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    min-height:24px !important;
-    padding:10px 1px 4px !important;
-    background:linear-gradient(transparent,rgba(5,5,5,.92)) !important;
-  }
-
-  .category-home .category-name{
-    display:block !important;
-    color:#f2e1bf !important;
-    font:400 7px/1 Arial,sans-serif !important;
-    letter-spacing:.035em !important;
-    white-space:nowrap !important;
-  }
-
-  .category-home .catalog-search-button,
-  .category-home .home-contact-button{
-    height:40px !important;
-    min-height:40px !important;
+    min-height:22px !important;
+    padding:9px 1px 4px !important;
   }
 }
 
