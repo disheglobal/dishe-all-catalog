@@ -606,3 +606,42 @@ button{font-family:inherit}
 
 /* Ten cards form complete rows on small screens too. */
 @media(max-width:650px){.category-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* === iPHONE CATEGORY GRID FIX === */
+@media (max-width:650px){
+  .category-home .category-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    padding:6px !important;
+    width:100% !important;
+  }
+
+  .category-home .category-tile{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    background:#efefed !important;
+  }
+
+  .category-home .category-visual{
+    position:relative !important;
+    display:block !important;
+    width:100% !important;
+    height:calc(100vw - 18px) !important;
+    aspect-ratio:auto !important;
+    overflow:hidden !important;
+  }
+
+  .category-home .category-cover-image{
+    position:absolute !important;
+    inset:0 !important;
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center !important;
+  }
+}
+
