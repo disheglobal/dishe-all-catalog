@@ -1,8 +1,9 @@
+// FINAL MOBILE COVER PUBLISH TEST: 20260924-1240-final-publish-test
 const app=document.getElementById('app');
 let db={products:[]};
 // Stable release key lets phones cache category covers between visits.
 // Change it only when catalog assets are deliberately replaced.
-const ASSET_VERSION='20260924-bg-covers-v1';
+const ASSET_VERSION='20260924-1240-final-publish-test';
 
 const MENU_ITEMS=[
   ['SUIT','Suits'],['SHIRT','Shirts'],
@@ -17,10 +18,7 @@ const telegramIcon=()=>`<span class="telegram-icon" aria-hidden="true"><svg view
 const menuButton=(key,en)=>`<button class="lux-button menu-category" data-c="${key}" aria-label="${en}"><span class="lux-copy"><span class="lux-en">${en}</span></span>${clickIcon()}</button>`;
 const categoriesButton=()=>`<button class="lux-button categories-button" aria-label="Categories"><span class="lux-copy"><span class="lux-en">Categories</span></span>${clickIcon()}</button>`;
 
-const categoryTile=([key,en])=>`<button class="category-tile" data-c="${key}" aria-label="${en}">
-<span class="category-visual" style="background-image:url('https://disheglobal.github.io/dishe-all-catalog/assets/covers/${key}.webp?v=${ASSET_VERSION}')"></span>
-<span class="category-copy"><span class="category-name">${en}</span></span>
-</button>`;
+const categoryTile=([key,en])=>`<button class="category-tile" data-c="${key}" aria-label="${en}"><span class="category-visual"><img class="category-cover-image" src="https://disheglobal.github.io/dishe-all-catalog/assets/covers/${key}.webp?v=${ASSET_VERSION}" alt="${en}" decoding="async"></span><span class="category-copy"><span class="category-name">${en}</span></span></button>`;
 const searchButton=()=>`<button class="catalog-search-button" type="button" aria-label="Search by product code"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 5 5"></path></svg><span>Search by code</span></button>`;
 const categoryMenuMarkup=(extraClass='')=>`<div class="category-home ${extraClass}"><section class="category-hero"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="D.SHE Fall Winter 2026"></section><section class="category-section">${searchButton()}<div class="category-grid">${MENU_ITEMS.map(categoryTile).join('')}</div></section><a class="home-contact-button" href="https://dishesocial.carrd.co/" target="_blank" rel="noopener">CONTACT US</a><section class="campaign-bottom" aria-label="D.SHE campaign"><img src="assets/bottom_left.jpg?v=${ASSET_VERSION}" alt="D.SHE outerwear by the sea" loading="lazy" decoding="async"><img src="assets/bottom_right.jpg?v=${ASSET_VERSION}" alt="D.SHE knitwear detail" loading="lazy" decoding="async"></section></div>`;
 const openCategoryLink=cat=>{if(cat==='BAG'){window.location.href='https://t.me/DisheBag';return;}openCategory(cat)};
