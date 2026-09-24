@@ -607,7 +607,8 @@ button{font-family:inherit}
 /* Ten cards form complete rows on small screens too. */
 @media(max-width:650px){.category-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* === D.SHE COVER GRID V5 — isolated from old category image rules === */
+
+/* === V6 CLEAN MOBILE COVER GRID === */
 .category-home,
 .category-home .category-section,
 .category-home .category-grid,
@@ -625,21 +626,22 @@ button{font-family:inherit}
   background:#050505 !important;
 }
 
-.dshe-cover-card-v5{
+.mobile-cover-v6{
+  appearance:none !important;
+  -webkit-appearance:none !important;
   position:relative !important;
   display:block !important;
   width:100% !important;
   min-width:0 !important;
-  height:auto !important;
   margin:0 !important;
   padding:0 !important;
   border:0 !important;
-  background:#050505 !important;
   overflow:hidden !important;
+  background:#050505 !important;
   cursor:pointer !important;
 }
 
-.dshe-cover-img-v5{
+.mobile-cover-v6-img{
   position:relative !important;
   z-index:1 !important;
   display:block !important;
@@ -651,12 +653,12 @@ button{font-family:inherit}
   opacity:1 !important;
   visibility:visible !important;
   filter:none !important;
-  mix-blend-mode:normal !important;
   transform:none !important;
+  mix-blend-mode:normal !important;
   background:#050505 !important;
 }
 
-.dshe-cover-label-v5{
+.mobile-cover-v6-label{
   position:absolute !important;
   z-index:2 !important;
   left:0 !important;
@@ -665,12 +667,12 @@ button{font-family:inherit}
   display:flex !important;
   align-items:flex-end !important;
   justify-content:center !important;
-  min-height:28px !important;
-  padding:12px 1px 5px !important;
-  background:linear-gradient(transparent,rgba(5,5,5,.90)) !important;
+  min-height:25px !important;
+  padding:10px 1px 4px !important;
+  background:linear-gradient(transparent,rgba(5,5,5,.92)) !important;
   color:#f2e1bf !important;
   font:400 10px/1 Arial,sans-serif !important;
-  letter-spacing:.06em !important;
+  letter-spacing:.05em !important;
   text-transform:uppercase !important;
   white-space:nowrap !important;
   pointer-events:none !important;
@@ -685,15 +687,12 @@ button{font-family:inherit}
   text-decoration:none !important;
 }
 
-@media (max-width:650px){
+@media(max-width:650px){
   .category-home .category-grid{
     grid-template-columns:repeat(5,minmax(0,1fr)) !important;
   }
-  .dshe-cover-label-v5{
+  .mobile-cover-v6-label{
     font-size:7px !important;
-    letter-spacing:.035em !important;
-    min-height:22px !important;
-    padding:9px 1px 4px !important;
+    letter-spacing:.025em !important;
   }
 }
-
