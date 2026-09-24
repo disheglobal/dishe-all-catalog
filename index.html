@@ -1002,7 +1002,7 @@ const app=document.getElementById('app');
 let db={products:[]};
 // Stable release key lets phones cache category covers between visits.
 // Change it only when catalog assets are deliberately replaced.
-const ASSET_VERSION='20260924-cover-fallback-v2';
+const ASSET_VERSION='20260924-all-png-v1';
 
 const MENU_ITEMS=[
   ['SUIT','Suits'],['SHIRT','Shirts'],
@@ -1021,10 +1021,8 @@ const categoryTile=([key,en])=>`<button class="category-tile" data-c="${key}" ar
 <span class="category-visual">
 <img class="category-cover-image"
      src="assets/covers/${key}.png?v=${ASSET_VERSION}"
-     data-key="${key}"
      alt="${en}"
-     decoding="async"
-     onerror="if(!this.dataset.fallback){this.dataset.fallback='jpg';this.src='assets/covers/'+this.dataset.key+'.jpg?v=${ASSET_VERSION}';}else if(this.dataset.fallback==='jpg'){this.dataset.fallback='webp';this.src='assets/covers/'+this.dataset.key+'.webp?v=${ASSET_VERSION}';}else if(this.dataset.fallback==='webp'){this.dataset.fallback='jpeg';this.src='assets/covers/'+this.dataset.key+'.jpeg?v=${ASSET_VERSION}';}">
+     decoding="async">
 </span>
 <span class="category-copy"><span class="category-name">${en}</span></span>
 </button>`;
