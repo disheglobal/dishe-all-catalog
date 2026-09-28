@@ -4,13 +4,15 @@ const app=document.getElementById('app');
 let db={products:[]};
 // Stable release key lets phones cache category covers between visits.
 // Change it only when catalog assets are deliberately replaced.
-const ASSET_VERSION='20260926090003065830';
+const ASSET_VERSION='20260928124648398455';
 
 const MENU_ITEMS=[
   ['SUIT','Suits'],['SHIRT','Shirts'],['PANTS','Jeans'],
   ['JACKET','Jackets'],['SKIRT','Skirts'],['OUTFIT','Outerwear'],
   ['KNITWEAR','Knitwear'],['BIG_SIZE','Plus Size'],['DRESS','Dresses']
 ];
+const SHEZZEN_ITEM=['SHEZZEN','SHEZZEN'];
+const ALL_CATEGORY_ITEMS=[...MENU_ITEMS,SHEZZEN_ITEM];
 
 const clickIcon=()=>`<span class="click-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M13.2 15.4V6.9a2.2 2.2 0 0 1 4.4 0v7.2-2.1a2.1 2.1 0 0 1 4.2 0v1.1a2.1 2.1 0 0 1 4.2 0v1.4a2.1 2.1 0 0 1 4.2 0v5.4c0 5.4-3.2 8.4-8.1 8.4h-2.4c-3.1 0-5.4-1.4-7-3.9l-4.1-6.5a2.3 2.3 0 0 1 3.6-2.8l1 1.3Z"/><path d="M7 5.8 4.8 3.6M11.3 3.9V1M6 10H2.8"/></svg></span>`;
 const telegramIcon=()=>`<span class="telegram-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="15"/><path d="m7.2 15.4 16.9-6.5c.8-.3 1.5.2 1.2 1.5l-2.9 13.5c-.2 1-1 1.3-1.8.8l-4.4-3.3-2.1 2.1c-.2.2-.4.4-.8.4l.3-4.5 8.2-7.4c.4-.3-.1-.5-.5-.2l-10.1 6.4-4.4-1.4c-1-.3-1-1 .4-1.4Z"/></svg></span>`;
@@ -18,15 +20,25 @@ const telegramIcon=()=>`<span class="telegram-icon" aria-hidden="true"><svg view
 const menuButton=(key,en)=>`<button class="lux-button menu-category" data-c="${key}" aria-label="${en}"><span class="lux-copy"><span class="lux-en">${en}</span></span>${clickIcon()}</button>`;
 const categoriesButton=()=>`<button class="lux-button categories-button" aria-label="Categories"><span class="lux-copy"><span class="lux-en">Categories</span></span>${clickIcon()}</button>`;
 
-const categoryTile=([key,en])=>`<button class="mobile-cover-v6" data-c="${key}" aria-label="${en}"><img class="mobile-cover-v6-img" src="assets/covers/${key}.webp?v=${ASSET_VERSION}" alt="${en}"><span class="mobile-cover-v6-label">${en}</span></button>`;
+const categoryTile=([key,en])=>`<button class="mobile-cover-v6" data-c="${key}" aria-label="${en}"><img class="mobile-cover-v6-img" src="https://disheglobal.github.io/dishe-all-catalog/assets/covers/${key}.webp?v=20260924-v6-clean-mobile-covers" alt="${en}"><span class="mobile-cover-v6-label">${en}</span></button>`;
 const searchButton=()=>`<button class="catalog-search-button" type="button" aria-label="Search by product code"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 5 5"></path></svg><span>Search by code</span></button>`;
 const categoryMenuMarkup=(extraClass='')=>`<div class="category-home ${extraClass}">
 <section class="category-hero"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="D.SHE Fall Winter 2026"></section>
-<section class="category-section">${searchButton()}<div class="category-grid">${MENU_ITEMS.map(categoryTile).join('')}</div></section>
-<section class="campaign-bottom" aria-label="D.SHE campaign"><img src="assets/bottom.jpg?v=${ASSET_VERSION}" alt="D.SHE campaign" loading="lazy" decoding="async"></section>
+<section class="category-section">${searchButton()}<div class="category-grid" style="display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:4px !important;padding:4px !important;">${MENU_ITEMS.map(categoryTile).join('')}</div></section>
+<a class="home-contact-button" href="https://dishesocial.carrd.co/" target="_blank" rel="noopener">CONTACT US</a>
+<section class="campaign-bottom single-bottom shezzen-entry" data-c="SHEZZEN" role="button" tabindex="0" aria-label="SHEZZEN" style="cursor:pointer">
+  <img src="assets/bottom.jpg?v=${ASSET_VERSION}" alt="SHEZZEN" loading="lazy" decoding="async">
+</section>
 </div>`;
 const openCategoryLink=cat=>{if(cat==='BAG'){window.location.href='https://t.me/DisheBag';return;}openCategory(cat)};
 const bindCategoryTiles=(scope=document)=>scope.querySelectorAll('.mobile-cover-v6').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();openCategoryLink(b.dataset.c)}));
+const bindShezzenEntry=(scope=document)=>{
+  const entry=scope.querySelector('.shezzen-entry');
+  if(!entry)return;
+  const open=e=>{e.preventDefault();openCategory('SHEZZEN')};
+  entry.addEventListener('click',open);
+  entry.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){open(e)}});
+};
 
 fetch('data/catalog.json',{cache:'no-store'}).then(r=>r.json())
   .then(catalog=>{db=catalog;home()})
@@ -53,6 +65,7 @@ async function legacyHome(){
 async function home(){
   app.innerHTML=`<section class="screen home">${categoryMenuMarkup()}</section>`;
   bindCategoryTiles();
+  bindShezzenEntry();
   document.querySelector('.catalog-search-button')?.addEventListener('click',openProductSearch);
 }
 
@@ -88,11 +101,11 @@ function openSearchResults(code,products){
 }
 
 async function openCategory(cat){
-  const selectedItem=MENU_ITEMS.find(([key])=>key===cat);
+  const selectedItem=ALL_CATEGORY_ITEMS.find(([key])=>key===cat);
   if(!selectedItem){home();return;}
-  const categorySequence=MENU_ITEMS;
+  const categorySequence=ALL_CATEGORY_ITEMS;
   const loaderSlide=(key,comingSoon=false)=>{
-    const [,en]=MENU_ITEMS.find(([itemKey])=>itemKey===key);
+    const [,en]=ALL_CATEGORY_ITEMS.find(([itemKey])=>itemKey===key);
     return `<article class="slide category-loader-slide"><div class="category-loader"><img src="assets/category-loader.webp?v=${ASSET_VERSION}" alt="D.SHE ${en}"><span class="loader-diamond" aria-label="Loading"><svg viewBox="0 0 90 66" aria-hidden="true"><defs><linearGradient id="redGem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff8084"/><stop offset=".42" stop-color="#e20d1c"/><stop offset="1" stop-color="#690008"/></linearGradient></defs><path class="gem-shadow" d="M19 17h52l13 17-39 29L6 34l13-17Z"/><path class="gem-crown" d="M19 17h52l13 17H6l13-17Z"/><path class="gem-left" d="M6 34h25l14 29L6 34Z"/><path class="gem-center" d="M31 34h28L45 63 31 34Z"/><path class="gem-right" d="M59 34h25L45 63l14-29Z"/><path class="gem-top-left" d="m19 17 12 17 14-17-26 0Z"/><path class="gem-top-center" d="m45 17 14 17 12-17H45Z"/><path class="gem-glint" d="m25 19 7 11 8-11H25Z"/><path class="gem-rim" d="M19 17h52l13 17-39 29L6 34l13-17ZM6 34h78M31 34l14 29 14-29M19 17l12 17 14-17 14 17 12-17"/></svg></span>${comingSoon?'<span class="loader-coming-soon">COMING SOON</span>':''}</div></article>`;
   };
   app.innerHTML=`<section class="screen viewer"><div class="slides">${loaderSlide(cat)}</div></section>`;
@@ -168,6 +181,7 @@ async function openCategory(cat){
   }));
 
   bindCategoryTiles(document.querySelector('.menu-return-slide'));
+  bindShezzenEntry(document.querySelector('.menu-return-slide'));
 
   const el=document.querySelector('.slides');
   const loadSlideImages=(center,radius=2)=>{
