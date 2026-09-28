@@ -4,7 +4,7 @@ const app=document.getElementById('app');
 let db={products:[]};
 // Stable release key lets phones cache category covers between visits.
 // Change it only when catalog assets are deliberately replaced.
-const ASSET_VERSION='20260928130625914087';
+const ASSET_VERSION='20260928131610589933';
 
 const MENU_ITEMS=[
   ['SUIT','Suits'],['SHIRT','Shirts'],['PANTS','Jeans'],
@@ -25,7 +25,6 @@ const searchButton=()=>`<button class="catalog-search-button" type="button" aria
 const categoryMenuMarkup=(extraClass='')=>`<div class="category-home ${extraClass}">
 <section class="category-hero"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="D.SHE Fall Winter 2026"></section>
 <section class="category-section">${searchButton()}<div class="category-grid" style="display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:4px !important;padding:4px !important;">${MENU_ITEMS.map(categoryTile).join('')}</div></section>
-<a class="home-contact-button" href="https://dishesocial.carrd.co/" target="_blank" rel="noopener">CONTACT US</a>
 <section class="campaign-bottom single-bottom shezzen-entry" data-c="SHEZZEN" role="button" tabindex="0" aria-label="SHEZZEN" style="cursor:pointer">
   <img src="assets/bottom.jpg?v=${ASSET_VERSION}" alt="SHEZZEN" loading="lazy" decoding="async">
 </section>
@@ -124,10 +123,9 @@ async function openCategory(cat){
       selectedSlides.push(...products.map(p=>`<article class="slide product-slide"><div class="product-stage"><img data-src="${p.image}?v=${ASSET_VERSION}" alt="${p.title||p.code}" loading="lazy" decoding="async">${categoriesButton()}</div></article>`));
     }
     const nextItem=categorySequence[sequenceIndex+1];
-    const nextLabel=nextItem?nextItem[1]:'Contact us';
+    const nextLabel=nextItem?nextItem[1]:'Menu';
     selectedSlides.push(`<article class="slide category-end-slide"><div class="category-end"><img src="assets/category-loader.webp?v=${ASSET_VERSION}" alt="D.SHE Categories"><div class="category-neighbour category-previous">${arrowIcon}<small>${categorySequence[sequenceIndex][1]}</small></div><button class="category-return-button" type="button"><span>Categories</span>${clickIcon()}</button><div class="category-neighbour category-next"><small>${nextLabel}</small>${arrowIcon}</div></div></article>`);
   });
-  selectedSlides.push(`<article class="slide category-end-slide"><div class="category-end"><img src="assets/category-loader.webp?v=${ASSET_VERSION}" alt="D.SHE Contact us"><a class="category-return-button category-contact-button" href="https://dishesocial.carrd.co/" target="_blank" rel="noopener"><span>Contact us</span>${clickIcon()}</a><button class="category-return-button category-home-button" type="button"><span>Menu</span>${clickIcon()}</button></div></article>`);
   app.innerHTML=`<section class="screen viewer"><div class="slides">${selectedSlides.join('')}</div><div class="hint"></div></section>`;
   document.querySelectorAll('.categories-button,button.category-return-button').forEach(b=>b.addEventListener('click',e=>{
     e.preventDefault();
@@ -163,8 +161,6 @@ async function openCategory(cat){
       .filter(p=>(p.categories||[p.category]).includes(key))
       .forEach(p=>slides.push(`<article class="slide product-slide"><div class="product-stage"><img data-src="${p.image}?v=${ASSET_VERSION}" alt="${p.title||p.code}" loading="lazy" decoding="async">${categoriesButton()}</div></article>`));
   });
-
-  slides.push(`<article class="slide final-contact-slide"><div class="cover-stage"><img src="assets/menu.jpg?v=${ASSET_VERSION}" alt="D.SHE Contact Us"><div class="cover-copy end-copy"><img class="cover-logo" src="assets/dishe-logo.png?v=${ASSET_VERSION}" alt="D.SHE"><div class="cover-new-season">NEW SEASON</div><div class="cover-season">FALL / WINTER 2026</div><div class="cover-divider"><span></span><svg class="cover-diamond" viewBox="0 0 64 48" aria-hidden="true"><path d="M12 5h40l9 13-29 27L3 18 12 5Z"/><path d="m12 5 8 13 12-13 12 13 8-13M3 18h58M20 18l12 27 12-27"/></svg><span></span></div><button class="contact-button" type="button"><span class="lux-copy"><span class="lux-en">CONTACT US</span><span class="lux-ru">СВЯЖИТЕСЬ С НАМИ</span></span>${clickIcon()}</button></div></div></article>`);
 
   app.innerHTML=`<section class="screen viewer"><div class="slides">${slides.join('')}</div><div class="hint"></div></section>`;
 
