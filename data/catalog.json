@@ -1121,20 +1121,6 @@
       "image": "assets/products/S177101_BLACK.jpg"
     },
     {
-      "id": "S250101_BLACK",
-      "code": "S250101_BLACK",
-      "color": "BLACK",
-      "title": "The Boyfriend Pants",
-      "size": "26, 27, 28, 29, 30",
-      "price": "26.5",
-      "stock": "9",
-      "category": "PANTS",
-      "categories": [
-        "PANTS"
-      ],
-      "image": "assets/products/S250101_BLACK.jpg"
-    },
-    {
       "id": "S251101_BLACK",
       "code": "S251101_BLACK",
       "color": "BLACK",
@@ -1646,20 +1632,6 @@
         "KNITWEAR"
       ],
       "image": "assets/products/SO00539101_NAVYBLU.jpg"
-    },
-    {
-      "id": "SO00541101_NAVYBLU",
-      "code": "SO00541101_NAVYBLU",
-      "color": "GRAY",
-      "title": "The Long-Sleeve Knitwear",
-      "size": "S, M, L, XL",
-      "price": "27.0",
-      "stock": "6",
-      "category": "KNITWEAR",
-      "categories": [
-        "KNITWEAR"
-      ],
-      "image": "assets/products/SO00541101_NAVYBLU.jpg"
     },
     {
       "id": "SO00546101_BLACK",
