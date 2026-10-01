@@ -239,34 +239,6 @@
       "image": "assets/products/B9277101_BLUE.jpg"
     },
     {
-      "id": "B9278101_BLACK",
-      "code": "B9278101_BLACK",
-      "color": "BLACK",
-      "title": "The Big Size Flare Pants",
-      "size": "31, 32, 33, 34, 36",
-      "price": "25.0",
-      "stock": "10",
-      "category": "BIG_SIZE",
-      "categories": [
-        "BIG_SIZE"
-      ],
-      "image": "assets/products/B9278101_BLACK.jpg"
-    },
-    {
-      "id": "S9280102_BLACK",
-      "code": "S9280102_BLACK",
-      "color": "BLACK",
-      "title": "The Big Size Straight-Leg Pants",
-      "size": "31, 32, 33, 34, 36",
-      "price": "29.5",
-      "stock": "2",
-      "category": "BIG_SIZE",
-      "categories": [
-        "BIG_SIZE"
-      ],
-      "image": "assets/products/S9280102_BLACK.jpg"
-    },
-    {
       "id": "S9301101_BLUE",
       "code": "S9301101_BLUE",
       "color": "BLUE",
@@ -1331,20 +1303,6 @@
       "image": "assets/products/AO00314101_YELLOW.jpg"
     },
     {
-      "id": "AO00316101_BLACK",
-      "code": "AO00316101_BLACK",
-      "color": "BLACK",
-      "title": "The Knitwear T-Short",
-      "size": "S, M, L, XL",
-      "price": "33.5",
-      "stock": "17",
-      "category": "KNITWEAR",
-      "categories": [
-        "KNITWEAR"
-      ],
-      "image": "assets/products/AO00316101_BLACK.jpg"
-    },
-    {
       "id": "AO00317101_BLACK",
       "code": "AO00317101_BLACK",
       "color": "BLACK",
@@ -1371,21 +1329,6 @@
         "KNITWEAR"
       ],
       "image": "assets/products/AO00317101_BROWN.jpg"
-    },
-    {
-      "id": "AO00365101_BLACK",
-      "code": "AO00365101_BLACK",
-      "color": "BLACK",
-      "title": "The Knitwear Skirt",
-      "size": "S, M, L, XL",
-      "price": "20.0",
-      "stock": "29",
-      "category": "KNITWEAR",
-      "categories": [
-        "KNITWEAR",
-        "SKIRT"
-      ],
-      "image": "assets/products/AO00365101_BLACK.jpg"
     },
     {
       "id": "AO00365101_BLUE",
@@ -1560,21 +1503,6 @@
         "DRESS"
       ],
       "image": "assets/products/BO7943105_CAMEL.jpg"
-    },
-    {
-      "id": "BO7943107_GRAY",
-      "code": "BO7943107_GRAY",
-      "color": "GRAY",
-      "title": "The Maxi Knitwear Dress",
-      "size": "S, M, L",
-      "price": "57.0",
-      "stock": "8",
-      "category": "KNITWEAR",
-      "categories": [
-        "KNITWEAR",
-        "DRESS"
-      ],
-      "image": "assets/products/BO7943107_GRAY.jpg"
     },
     {
       "id": "BO7943108_BLACK",
@@ -1832,21 +1760,6 @@
         "KNITWEAR"
       ],
       "image": "assets/products/SO00596101_BLACK.jpg"
-    },
-    {
-      "id": "STK00545101_ECRU",
-      "code": "STK00545101_ECRU",
-      "color": "PINK",
-      "title": "The Knitwear Suit",
-      "size": "S, M, L, XL",
-      "price": "48.5",
-      "stock": "10",
-      "category": "KNITWEAR",
-      "categories": [
-        "KNITWEAR",
-        "SUIT"
-      ],
-      "image": "assets/products/STK00545101_ECRU.jpg"
     },
     {
       "id": "STK00545101_PINK",
