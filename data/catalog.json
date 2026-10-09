@@ -379,20 +379,6 @@
       "image": "assets/products/SO00590101_BROWN.jpg"
     },
     {
-      "id": "SO00590101_ECRU",
-      "code": "SO00590101_ECRU",
-      "color": "ECRU",
-      "title": "The Big Size Long-Sleeve Knit",
-      "size": "42, 44, 46",
-      "price": "13.0",
-      "stock": "9",
-      "category": "BIG_SIZE",
-      "categories": [
-        "BIG_SIZE"
-      ],
-      "image": "assets/products/SO00590101_ECRU.jpg"
-    },
-    {
       "id": "SO00672101_BLACK",
       "code": "SO00672101_BLACK",
       "color": "BLACK",
@@ -1489,21 +1475,6 @@
         "DRESS"
       ],
       "image": "assets/products/BO7943105_CAMEL.jpg"
-    },
-    {
-      "id": "BO7943108_BLACK",
-      "code": "BO7943108_BLACK",
-      "color": "BLACK",
-      "title": "The Maxi Knitwear Dress",
-      "size": "S, M, L",
-      "price": "57.0",
-      "stock": "9",
-      "category": "KNITWEAR",
-      "categories": [
-        "KNITWEAR",
-        "DRESS"
-      ],
-      "image": "assets/products/BO7943108_BLACK.jpg"
     },
     {
       "id": "DO00659101_BEIGE",
